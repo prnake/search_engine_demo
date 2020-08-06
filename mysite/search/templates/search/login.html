@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block main_block %}
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
-        <div class="container-fluid"><a href="/"><img src="{% static 'img/SAST.png' %}" width="60" height="60"></a>
-            <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                id="navcol-1">
-                <ul class="nav navbar-nav mr-auto"></ul><span class="navbar-text actions"> <a class="login" href="/login">Log In</a><a class="btn btn-light action-button" role="button" href="/signup">Sign Up</a></span></div>
-        </div>
-    </nav>
     <main>
-        <div class="login-card"><img class="profile-img-card" src="../static/img/avatar_2x.png">
+        <div class="login-card">
+            <img class="profile-img-card" src="../static/img/avatar_2x.png">
             <p class="profile-name-card"> </p>
-            <form class="form-signin"><span class="reauth-email"> </span><input class="form-control" type="email" id="inputEmail" required="" placeholder="Email address" autofocus=""><input class="form-control" type="password" id="inputPassword" required="" placeholder="Password">
-                <div
-                    class="checkbox">
+            <form class="form-signin" action="{% url "login" %}" method="post">
+                {%csrf_token%}
+                {% if login_form.captcha.errors %}
+                    <div class="alert alert-warning">{{ login_form.captcha.errors }}</div>
+                {% elif message %}
+                    <div class="alert alert-warning">{{ message }}</div>
+                {% endif %}
+                <span class="reauth-email"> </span><input class="form-control" type="email" id="inputEmail" required="" placeholder="Email address" name="email" autofocus=""><input class="form-control" type="password" name="password" id="inputPassword" required="" placeholder="Password">
+                {{ login_form.captcha.label_tag }}
+                {{ login_form.captcha }}
+                <div class="checkbox">
                     <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Remember me</label></div>
-        </div><button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">Log in</button></form><a class="forgot-password" href="/signup">Forgot your password?</a></div>
+        </div><button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">Log in</button></form><a class="forgot-password" href="/signup">Forgot your password?</a>
+        </div>
+
     </main>
 {% endblock main_block %}

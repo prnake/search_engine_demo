@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "search.apps.SearchConfig"
+    "search.apps.SearchConfig",
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -115,3 +116,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Captcha
+CAPTCHA_IMAGE_SIZE = (80,28)
+CAPTCHA_TIMEOUT = 1

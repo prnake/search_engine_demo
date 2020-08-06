@@ -1,4 +1,5 @@
 {% load static %}
+{% load gravatar %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,6 +12,22 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
     <body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container-fluid"><a href="/"><img src="{% static 'img/SAST.png' %}" width="60" height="60"></a>
+        {% if searchbox %}
+            <div class="search-box"><form action="/search/" method="GET"><input type="text" placeholder=" " name="q"></form><span></span></div>
+        {% endif %}
+        <span class="navbar-text actions">
+            {% if request.session.is_login %}
+            <a class="login" href="/logout">Log Out</a>
+            <a  target="_blank" href="https://cn.gravatar.com/" rel="noopener noreferrer"><img class="user-avatar" src="{{ request.session.user_email|gravatar_url:128 }}"></a>
+            {% else %}
+            <a class="login" href="/login">Log In</a>
+            <a class="btn btn-light action-button" role="button" href="/signup">Sign Up</a>
+            {% endif %}
+        </span>
+        </div>
+    </nav>
     {% block main_block %}
     {% endblock main_block %}
     <footer id="footer">
