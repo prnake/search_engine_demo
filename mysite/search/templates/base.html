@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>{{ title }}</title>
+        <meta name="description" content="{{ description }}">
+        <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    {% block main_block %}
+    {% endblock main_block %}
+    <footer id="footer">
+    <div style= "background: white; text-align: center; margin: 0px; padding:10px">
+        <p style= "color:grey; font-family: raleway">&copy;2020&nbsp;<a target="_blank" href="https://psmoe.com" rel="noopener noreferrer">Papersnake</a><span class="my-face">&nbsp;(=^･ｪ･^=)ﾉ<span style='color:lightpink'>♥</span></span></p>
+    </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/style.js' %}"></script>
+    </body>
+</html>

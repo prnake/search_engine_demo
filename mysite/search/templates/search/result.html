@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_block %}
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container-fluid"><a href="/"><img src="{% static 'img/SAST.png' %}" width="60" height="60"></a>
+            <div class="search-box"><form action="/search/" method="GET"><input type="text" placeholder=" " name="q"></form><span></span></div><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto"></ul><span class="navbar-text actions"> <a class="login" href="/login">Log In</a><a class="btn btn-light action-button" role="button" href="/signup">Sign Up</a></span></div>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <p>Find 56 results in 0.005439 s, currently at page 1 / 6.<br></p>
+            <div class="post-container post-list-thumb-left">
+                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
+                <div class="post-content">
+                    <a href="#">
+                        <h1 class="post-title"><a href="#">Link</a></h1>
+                    </a>
+                    <p class="post-abstract">Paragraph</p>
+                    <p class="post-abstract"></p>
+                </div>
+            </div>
+            <div class="post-container">
+                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
+                <div class="post-content">
+                    <a href="#">
+                        <h1 class="post-title"><a href="#">Link</a></h1>
+                    </a>
+                    <p class="post-abstract">grid 中文意思是指「網格，方格，格子」的意思，grid&nbsp;的名詞複數為grids。grid&nbsp;不當作動詞用，只有名詞的型態。 下面列舉出grid的英文用</p>
+                </div>
+            </div>
+            <div class="post-container post-list-thumb-left">
+                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
+                <div class="post-content">
+                    <a href="#">
+                        <h1 class="post-title"><a href="#">Link</a></h1>
+                    </a>
+                    <p class="post-abstract">Paragraph</p>
+                    <p class="post-abstract"></p>
+                </div>
+            </div>
+            <div class="post-container">
+                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
+                <div class="post-content">
+                    <a href="#">
+                        <h1 class="post-title"><a href="#">Link</a></h1>
+                    </a>
+                    <p class="post-abstract">Paragraph</p>
+                </div>
+            </div>
+            <div class="post-container post-list-thumb-left">
+                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
+                <div class="post-content">
+                    <a href="#">
+                        <h1 class="post-title"><a href="#">Link</a></h1>
+                    </a>
+                    <p class="post-abstract">Paragraph</p>
+                    <p class="post-abstract"></p>
+                </div>
+            </div>
+            <div class="post-container">
+                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
+                <div class="post-content">
+                    <a href="#">
+                        <h1 class="post-title"><a href="#">Link</a></h1>
+                    </a>
+                    <p class="post-abstract">Paragraph</p>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock main_block %}

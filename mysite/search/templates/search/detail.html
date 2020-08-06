@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_block %}
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container-fluid"><a href="/"><img src="{% static 'img/SAST.png' %}" width="60" height="60"></a>
+            <div class="search-box"><form action="/search/" method="GET"><input type="text" placeholder=" " name="q"></form><span></span></div><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto"></ul><span class="navbar-text actions"> <a class="login" href="/login">Log In</a><a class="btn btn-light action-button" role="button" href="/signup">Sign Up</a></span></div>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <h1 class="post-detail-title">Heading</h1>
+            <p class="post-detail-info">Paragraph</p>
+            <div class="post-detail-content">
+                <p>Paragraph</p>
+                <div class="table-responsive">
+                    <table class="table">
+                        <table>
+                        <thead>
+                        <tr>
+                            <th style="width:200px">
+                                课程编号
+                            </th>
+                            <th>
+                                10691342
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                总学时
+                            </td>
+                            <td>
+                                32
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                总学分
+                            </td>
+                            <td>
+                                2
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                课程内容简介
+                            </td>
+                            <td>
+                                写作与沟通：人工智能的历史与未来 人工智能是一门年轻的学科，于1956年达特茅斯会议最早提出，而对“计算机能否像人一样思考”这个问题，计算机奠基人图灵和冯诺依曼都曾经系统地进行过研究，最早于1950年就提出了图灵测试这个人工智能的著名概念。短短70年里，IBM DeepBlue、IBM Watson、Google AlphaGo等跨时代的产品不断颠覆人们对人工智能技术的认知，谷歌搜索引擎、搜狗输入法、苹果Siri、刷脸支付等产品服务也让人工智能日益深入人们日常生活。 回顾过去，也许普通人并不知晓，这70年里人工智能领域曾经经历过几次高潮和低谷，曾几何时人工智能被学术界认为是“伪科学”的代名词，避之唯恐不及；很多人也不会知晓，人工智能同时有几个父亲，共同提出和创造了这个概念；更不会知晓的是，围绕人工智能各大流派和学者们之间的爱恨情仇。 展望未来，人工智能还有很多挑战仍未得到解决，道阻且长，这些挑战都在哪里？随着人工智能技术的日益普及，人与机器间的矛盾日益尖锐，人工智能面临着隐私泄露、抢占岗位、固化偏见等伦理问题，也逐渐成为人们共同关心的问题。 本节课将围绕人工智能的历史与未来这一有趣而对人类社会深具意义的话题，展开写作与沟通课程讲授，希望同学透过人工智能曲折的发展历史，擦亮思维的眼眸，使用批判而深刻的眼光，审视和思考人工智能的未来之路。
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                  </div>
+            </div>
+        </div>
+    </main>
+{% endblock main_block %}
