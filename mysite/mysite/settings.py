@@ -23,7 +23,7 @@ SECRET_KEY = env('SECRET_KEY')
 
 ADMIN_EMAIL = str(env('ADMIN_EMAIL')).split(' ')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

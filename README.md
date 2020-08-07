@@ -53,11 +53,27 @@ A demo for SAST Summer Training
 
 ## 配置教程
 
+```bash
+# Set up at Python 3.8.3, Django 3.0.3
+git clone https://github.com/prnake/search_engine_demo.git
+cd search_engine_demo
+pip install -r requirements.txt
+cd mysite
+vi mysite/.env
+```
+
 ```yaml
-#create file /path/to/mysite/mysite/.env
+#create .env file at /path/to/mysite/mysite
 DEBUG=off
 SECRET_KEY='your_secret_key'
 ADMIN_EMAIL='admin@example.com i@example.com'
+
+```
+
+Then
+
+```bash
+python manage.py migrate
 
 ```
 
