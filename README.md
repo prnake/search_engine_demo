@@ -1,6 +1,8 @@
 # search_engine_demo
 A demo for SAST Summer Training
 
+DEMO: https://search.pka.moe
+
 ## 规划列表
 
 - [x] 爬虫部分
@@ -79,4 +81,3 @@ python manage.py runserver 0.0.0.0:8000 --insecure
 ```
 
 Sign up at  yourwebsite/signup using the email in `ADMIN_EMAIL`, then visit yourwebsite/scrapy, type in the url and cookie of course-choose website, then just wait until everything is down.
-
