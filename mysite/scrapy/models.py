@@ -38,6 +38,7 @@ class Post(models.Model):
     a20 = models.TextField(verbose_name='重修是否占容量', blank=True)
     a21 = models.TextField(verbose_name='是否选课时限制', blank=True)
     a22 = models.TextField(verbose_name='本科文化素质课组', blank=True)
+
     def __str__(self):
         return self.title
 
@@ -57,6 +58,7 @@ class Teacher(models.Model):
     a5 = models.TextField(verbose_name='个人简介', blank=True)
     a6 = models.TextField(verbose_name='主要研究方向', blank=True)
     a7 = models.TextField(verbose_name='研究方向简介', blank=True)
+
     def __str__(self):
         return self.name
 

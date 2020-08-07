@@ -3,4 +3,11 @@ from . import models
 
 # Register your models here.
 
-admin.site.register(models.User)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ['email','password','c_time']
+
+class HotSpotAdmin(admin.ModelAdmin):
+    list_display = ['word', 'count']
+
+admin.site.register(models.User,UserAdmin)
+admin.site.register(models.HotSpot,HotSpotAdmin)

@@ -15,3 +15,13 @@ class User(models.Model):
         ordering = ['-c_time']
         verbose_name = "用户"
         verbose_name_plural = "用户"
+
+class HotSpot(models.Model):
+    word = models.CharField(max_length=100,unique=True)
+    count = models.IntegerField(default=0)
+    class Meta:
+        ordering = ['-count']
+        verbose_name = "热搜"
+        verbose_name_plural = "热搜"
+    def __str__(self):
+        return self.word

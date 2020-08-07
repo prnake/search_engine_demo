@@ -1,8 +1,8 @@
 import time
 from django.shortcuts import render,redirect,reverse
 from django.db.models import Q
-from . import forms
-from . import models
+from . import forms,models
+from .models import HotSpot
 from scrapy.models import Post,Teacher
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
@@ -26,6 +26,16 @@ def search_list(request):
     post_list = Post.objects
     for word in words:
         post_list = post_list.filter(Q(body__icontains=word))
+        try:
+            old_word = HotSpot.objects.get(word=word)
+        except:
+            new_word = HotSpot()
+            new_word.word = word
+            new_word.count += 1
+            new_word.save()
+        else:
+            old_word.count += 1
+            old_word.save()
     limit = 10
     paginator = Paginator(post_list, limit)
     page = request.GET.get('page')
