@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static gravatar %}
 {% block main_block %}
     <main>
         <div class="container">
             <p>Find {{ posts|length }} results in {{ load_time }} s, currently at page {{ posts.number }} / {{ paginator.num_pages }}.<br></p>
             {% for post in posts.object_list %}
             <div class="post-container {% if forloop.counter|divisibleby:2 %}post-list-thumb-left{% endif %} }}">
-                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
+                <div class="post-thumb"><a href="#"><img src='{% random_img "image/" %}'></a></div>
                 <div class="post-content">
                     <a href="#">
                         <h1 class="post-title"><a href="/detail/{{ post.id }}">{{ post.title }}</a></h1>
                     </a>
-                    <p class="post-abstract">{{ post.introduction|slice:"125" }}{% if post.introduction|length > 100 %}......{% endif %}</p>
+                    <p class="post-short-info">{{ post.department }}  <a href="/teacher/{{ post.teacher_id }}">{{ post.teacher }}</a></p>
+                    <p class="post-abstract">{{ post.introduction|striptags|slice:"100" }}{% if post.introduction|length > 100 %}......{% endif %}</p>
                 </div>
             </div>
             {% endfor %}

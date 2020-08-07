@@ -145,7 +145,6 @@ main p {
   font-size: 17px;
   line-height: 1.3em;
   letter-spacing: .6px;
-  white-space: pre-line;
 }
 
 @media only screen and (max-height: 600px).post-abstract {
@@ -166,6 +165,7 @@ user agent stylesheetdiv {
   display: flex;
   height: 150px;
   width: 300px;
+  overflow: hidden;
 }
 
 .post-thumb a img {
@@ -196,7 +196,7 @@ user agent stylesheetdiv {
 .post-content {
   writing-mode: horizontal-tb;
   display: grid;
-  padding: 20px;
+  padding-left: 20px;
 }
 
 .post-detail-title {
@@ -205,6 +205,11 @@ user agent stylesheetdiv {
 
 .post-detail-info {
   text-align: center;
+}
+
+p.post-short-info {
+    font-size: 13px;
+    line-height: 0em;
 }
 
 .navigation-clean-button {

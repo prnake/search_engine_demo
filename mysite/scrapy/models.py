@@ -3,17 +3,19 @@ from django.db import models
 # Create your models here.
 
 class Post(models.Model):
-    id = models.IntegerField(primary_key=True,verbose_name='教师号')
-    title = models.CharField(max_length=50,verbose_name='课程名')
-    body = models.TextField(default='什么信息都没有哦～',verbose_name='全文')
-    department = models.TextField(default='未知',verbose_name='开课院系')
-    teacher = models.TextField(default='未知',verbose_name='主讲教师')
-    teacher_id = models.IntegerField(default=0,verbose_name='教师号')
+    id = models.IntegerField(primary_key=True, default=0)
+    url = models.CharField(max_length=50,blank=True)
+    title = models.CharField(max_length=50,verbose_name='课程名',blank=True)
+    body = models.TextField(default='什么信息都没有哦～',verbose_name='全文',blank=True)
+    department = models.TextField(default='未知',verbose_name='开课院系',blank=True)
+    teacher = models.TextField(default='未知',verbose_name='主讲教师',blank=True)
+    teacher_id = models.CharField(max_length=20,default='0',verbose_name='教师号',blank=True)
     class_id = models.CharField(max_length=20,verbose_name='课程号',blank=True)
-    class_id = models.CharField(max_length=20, verbose_name='课序号', blank=True)
-    study_credit = models.IntegerField(default=0, verbose_name='学分')
-    study_hour = models.IntegerField(default=0,verbose_name='总学时')
-    introduction = models.TextField(default='什么信息都没有哦～',verbose_name='课程内容简介')
+    class_alter_id = models.CharField(max_length=20, verbose_name='课序号', blank=True)
+    study_credit = models.CharField(max_length=20,default='0', verbose_name='学分',blank=True)
+    study_hour = models.CharField(max_length=20,default=0,verbose_name='总学时',blank=True)
+    introduction = models.TextField(default='什么信息都没有哦～',verbose_name='课程内容简介',blank=True)
+    en_introduction = models.TextField(verbose_name='Course Description',blank=True)
     a1 = models.TextField(verbose_name='进度安排',blank=True)
     a2 = models.TextField(verbose_name='考核方式',blank=True)
     a3 = models.TextField(verbose_name='教材及参考书',blank=True)
@@ -44,9 +46,10 @@ class Post(models.Model):
         verbose_name_plural = "课程信息"
 
 class Teacher(models.Model):
-    id = models.IntegerField(primary_key=True, verbose_name='教师号')
-    name = models.CharField(max_length=10, verbose_name='姓名')
-    sex = models.CharField(max_length=10, verbose_name='性别')
+    id = models.CharField(primary_key=True,max_length=20,verbose_name='教师号')
+    url = models.CharField(max_length=50,blank=True)
+    name = models.CharField(max_length=10, verbose_name='姓名',blank=True)
+    sex = models.CharField(max_length=10, verbose_name='性别',blank=True)
     a1 = models.TextField(verbose_name='职称', blank=True)
     a2 = models.TextField(verbose_name='单位', blank=True)
     a3 = models.TextField(verbose_name='电话', blank=True)

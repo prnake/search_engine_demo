@@ -1,7 +1,6 @@
 import time
 from django.shortcuts import render,redirect,reverse
 from django.db.models import Q
-from datetime import datetime
 from . import forms
 from . import models
 from scrapy.models import Post,Teacher
@@ -15,8 +14,8 @@ def search_home(request):
     return render(request,'search/index.html', locals())
 
 def search_list(request):
-    if request.session.get('is_login', None):  # 不允许重复登录
-        return redirect('/')
+    if not request.session.get('is_login'):
+        return redirect('/login')
     start_time = time.time()
     searchbox = True
     keywords = request.GET.get('q')
@@ -40,24 +39,24 @@ def search_list(request):
 
 
 def show_detail(request,post_id):
-    if request.session.get('is_login', None):  # 不允许重复登录
-        return redirect('/')
+    if not request.session.get('is_login'):
+        return redirect('/login')
     try:
         post = Post.objects.get(id=post_id)
     except:
         return redirect('/')
-    ignore_list = ['id','title','body']
+    ignore_list = ['id','title','body','url']
     params = [[f.verbose_name,post.__dict__[f.name]] for f in post._meta.fields if f.name not in ignore_list and post.__dict__[f.name]]
     return render(request,'search/detail.html', locals())
 
 def show_teacher(request,teacher_id):
-    if request.session.get('is_login', None):  # 不允许重复登录
-        return redirect('/')
+    if not request.session.get('is_login'):
+        return redirect('/login')
     try:
         post = Teacher.objects.get(id=teacher_id)
     except:
         return redirect('/')
-    ignore_list = []
+    ignore_list = ['url']
     params = [[f.verbose_name,post.__dict__[f.name]] for f in post._meta.fields if f.name not in ignore_list and post.__dict__[f.name]]
     return render(request,'search/teacher.html', locals())
 
