@@ -15,7 +15,7 @@
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
         <div class="container-fluid"><a href="/"><img src="{% static 'img/SAST.png' %}" width="60" height="60"></a>
         {% if searchbox %}
-            <div class="search-box"><form action="/search/" method="GET"><input type="text" placeholder=" " name="q" value="{{ keywords }}"></form><span></span></div>
+            <div class="search-box"><form action="/search/" method="GET"><input id="input" type="text" placeholder=" " name="q" value="{{ keywords }}"></form><span></span></div>
         {% endif %}
         <span class="navbar-text actions">
             {% if request.session.is_login %}

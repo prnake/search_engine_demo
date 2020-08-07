@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from .forms import LogForm
 from . import models
 from django.db.models import Max
+from mysite import settings
 
 from fake_useragent import UserAgent
 import requests
@@ -16,7 +17,7 @@ from lxml import etree
 # Create your views here.
 
 def class_spider(request):
-    if not request.session.get('is_login') or request.session.get('user_email') not in ["admin","prnake@gmail.com"]:  # 不允许重复登录
+    if not request.session.get('is_login') or request.session.get('user_email') not in settings.ADMIN_EMAIL:  # 不允许重复登录
         return redirect('/')
     if request.method == 'POST':
         form = LogForm(request.POST)
@@ -185,10 +186,13 @@ class ThuSpider(object):
             print("第%d页处理完成" % count)
             self.save_data_to_model()
     def save_data_to_model(self):
-        count = models.Post.objects.order_by('-id')[0].id + 1
+        try:
+            count = models.Post.objects.order_by('-id')[0].id + 1
+        except:
+            count = 0
         for item in self.data:
             try:
-                models.Post.objects.get(url=item['url'],class_id=item['class_id'],class_alter_id=item['class_alter_id'])
+                models.Post.objects.get(class_id=item['class_id'],class_alter_id=item['class_alter_id'])
             except:
                 new_post = Post()
                 new_post.id = count
@@ -229,7 +233,7 @@ class ThuSpider(object):
                 new_post.a22 = item['a22']
                 new_post.save()
             try:
-                models.Teacher.objects.get(url=item['teacher_url'],id=item['teacher_id'],name=item['teacher_name'])
+                models.Teacher.objects.get(id=item['teacher_id'],name=item['teacher_name'])
             except:
                 new_teacher = Teacher()
                 new_teacher.id = item['teacher_id']

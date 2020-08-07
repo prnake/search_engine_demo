@@ -125,6 +125,10 @@ def signup(request):
                     new_user = models.User()
                     new_user.email = email
                     new_user.password = password
+                    if request.META.has_key('HTTP_X_FORWARDED_FOR'):
+                        new_user.ip = request.META['HTTP_X_FORWARDED_FOR']
+                    else:
+                        new_user.ip = request.META['REMOTE_ADDR']
                     new_user.save()
                     request.session['is_login'] = True
                     request.session['user_email'] = email

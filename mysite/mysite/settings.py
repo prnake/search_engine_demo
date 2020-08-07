@@ -21,6 +21,8 @@ DEBUG = env('DEBUG')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
+ADMIN_EMAIL = str(env('ADMIN_EMAIL')).split(' ')
+
 ALLOWED_HOSTS = []
 
 
