@@ -3,64 +3,27 @@
 {% block main_block %}
     <main>
         <div class="container">
-            <p>Find 56 results in 0.005439 s, currently at page 1 / 6.<br></p>
-            <div class="post-container post-list-thumb-left">
+            <p>Find {{ posts|length }} results in {{ load_time }} s, currently at page {{ posts.number }} / {{ paginator.num_pages }}.<br></p>
+            {% for post in posts.object_list %}
+            <div class="post-container {% if forloop.counter|divisibleby:2 %}post-list-thumb-left{% endif %} }}">
                 <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
                 <div class="post-content">
                     <a href="#">
-                        <h1 class="post-title"><a href="#">Link</a></h1>
+                        <h1 class="post-title"><a href="/detail/{{ post.id }}">{{ post.title }}</a></h1>
                     </a>
-                    <p class="post-abstract">Paragraph</p>
-                    <p class="post-abstract"></p>
+                    <p class="post-abstract">{{ post.introduction|slice:"125" }}{% if post.introduction|length > 100 %}......{% endif %}</p>
                 </div>
             </div>
-            <div class="post-container">
-                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
-                <div class="post-content">
-                    <a href="#">
-                        <h1 class="post-title"><a href="#">Link</a></h1>
-                    </a>
-                    <p class="post-abstract">grid 中文意思是指「網格，方格，格子」的意思，grid&nbsp;的名詞複數為grids。grid&nbsp;不當作動詞用，只有名詞的型態。 下面列舉出grid的英文用</p>
-                </div>
-            </div>
-            <div class="post-container post-list-thumb-left">
-                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
-                <div class="post-content">
-                    <a href="#">
-                        <h1 class="post-title"><a href="#">Link</a></h1>
-                    </a>
-                    <p class="post-abstract">Paragraph</p>
-                    <p class="post-abstract"></p>
-                </div>
-            </div>
-            <div class="post-container">
-                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
-                <div class="post-content">
-                    <a href="#">
-                        <h1 class="post-title"><a href="#">Link</a></h1>
-                    </a>
-                    <p class="post-abstract">Paragraph</p>
-                </div>
-            </div>
-            <div class="post-container post-list-thumb-left">
-                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
-                <div class="post-content">
-                    <a href="#">
-                        <h1 class="post-title"><a href="#">Link</a></h1>
-                    </a>
-                    <p class="post-abstract">Paragraph</p>
-                    <p class="post-abstract"></p>
-                </div>
-            </div>
-            <div class="post-container">
-                <div class="post-thumb"><a href="#"><img src="../static/img/SAST.png"></a></div>
-                <div class="post-content">
-                    <a href="#">
-                        <h1 class="post-title"><a href="#">Link</a></h1>
-                    </a>
-                    <p class="post-abstract">Paragraph</p>
-                </div>
-            </div>
+            {% endfor %}
+            <p style="text-align: center">
+                {% if posts.has_previous %}
+                    <a href="?q={{ keywords }}&page={{ posts.previous_page_number }}">上一页</a>
+                {% endif %}
+                <span>第{{ posts.number }}页 | 共{{ paginator.num_pages }}页</span>
+                {% if posts.has_next %}
+                    <a href="?q={{ keywords }}&page={{ posts.next_page_number }}">下一页</a>
+                {% endif %}
+            </p>
         </div>
     </main>
 {% endblock main_block %}

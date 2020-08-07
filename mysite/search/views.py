@@ -1,28 +1,65 @@
+import time
 from django.shortcuts import render,redirect,reverse
+from django.db.models import Q
 from datetime import datetime
 from . import forms
 from . import models
+from scrapy.models import Post,Teacher
+from django.core.paginator import Paginator
+from django.core.paginator import EmptyPage
+from django.core.paginator import PageNotAnInteger
 
 # Create your views here.
 
 def search_home(request):
-    params = {
-        'title': '课程搜索系统',
-        'description':''
-    }
     return render(request,'search/index.html', locals())
 
 def search_list(request):
-    params = {
-        'title': '课程搜索系统',
-        'description': ''
-    }
+    if request.session.get('is_login', None):  # 不允许重复登录
+        return redirect('/')
+    start_time = time.time()
     searchbox = True
+    keywords = request.GET.get('q')
+    message = ''
+    if not keywords:
+        return redirect('/')
+    post_list = Post.objects.filter(Q(title__icontains=keywords)|Q(body__icontains=keywords))
+    limit = 10
+    paginator = Paginator(post_list, limit)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)  # 获取某页对应的记录
+    except PageNotAnInteger:  # 如果页码不是个整数
+        posts = paginator.page(1)  # 取第一页的记录
+    except EmptyPage:  # 如果页码太大，没有相应的记录
+        posts = paginator.page(paginator.num_pages)  # 取最后一页的记录
+
+    end_time = time.time()
+    load_time = end_time-start_time
     return render(request,'search/result.html', locals())
 
 
-def show_content(request):
-    print()
+def show_detail(request,post_id):
+    if request.session.get('is_login', None):  # 不允许重复登录
+        return redirect('/')
+    try:
+        post = Post.objects.get(id=post_id)
+    except:
+        return redirect('/')
+    ignore_list = ['id','title','body']
+    params = [[f.verbose_name,post.__dict__[f.name]] for f in post._meta.fields if f.name not in ignore_list and post.__dict__[f.name]]
+    return render(request,'search/detail.html', locals())
+
+def show_teacher(request,teacher_id):
+    if request.session.get('is_login', None):  # 不允许重复登录
+        return redirect('/')
+    try:
+        post = Teacher.objects.get(id=teacher_id)
+    except:
+        return redirect('/')
+    ignore_list = []
+    params = [[f.verbose_name,post.__dict__[f.name]] for f in post._meta.fields if f.name not in ignore_list and post.__dict__[f.name]]
+    return render(request,'search/teacher.html', locals())
 
 def login(request):
     if reverse('login'):
@@ -62,7 +99,10 @@ def signup(request):
                 email = register_form.cleaned_data.get('email')
                 password = register_form.cleaned_data.get('password')
                 password_repeat = register_form.cleaned_data.get('password_repeat')
-                if password != password_repeat:
+                if len(password) > 200:
+                    message = '输入的密码过长！'
+                    return render(request, 'search/signup.html', locals())
+                elif password != password_repeat:
                     message = '两次输入的密码不同！'
                     return render(request, 'search/signup.html', locals())
                 else:

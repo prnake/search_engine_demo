@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^signup/$', views.signup,name="signup"),
     url(r'^search/$', views.search_list,name="search"),
     url(r'^logout/$', views.logout,name="logout"),
-    path('content/<int:content_id>', views.show_content)
+    path('detail/<int:post_id>', views.show_detail),
+    path('teacher/<int:teacher_id>', views.show_teacher)
 ]
