@@ -25,6 +25,8 @@ ADMIN_EMAIL = str(env('ADMIN_EMAIL')).split(' ')
 
 ALLOWED_HOSTS = ['*']
 
+SESSION_COOKIE_SECURE=True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
 
 # Application definition
 

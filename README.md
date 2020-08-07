@@ -70,10 +70,13 @@ ADMIN_EMAIL='admin@example.com i@example.com'
 
 ```
 
-Then
+Run Django:
 
 ```bash
 python manage.py migrate
-
+python manage.py createsuperuser
+python manage.py runserver 0.0.0.0:8000 --insecure
 ```
+
+Sign up at  yourwebsite/signup using the email in `ADMIN_EMAIL`, then visit yourwebsite/scrapy, type in the url and cookie of course-choose website, then just wait until everything is down.
 
