@@ -50,3 +50,14 @@ A demo for SAST Summer Training
       - [x] 历史热门
     - [x] 详情页面
     
+
+## 配置教程
+
+```yaml
+#create file /path/to/mysite/mysite/.env
+DEBUG=off
+SECRET_KEY='your_secret_key'
+ADMIN_EMAIL='admin@example.com i@example.com'
+
+```
+
