@@ -25,7 +25,7 @@ def search_list(request):
     words = keywords.split(' ')
     post_list = Post.objects
     for word in words:
-        post_list = post_list.filter(Q(body__icontains=word))
+        post_list = post_list.filter(Q(body__icontains=word)|Q(teacher__icontains=word)|Q(department__icontains=word)|Q(a14__icontains=word)|Q(a15__icontains=word)|Q(a16__icontains=word)|Q(a17__icontains=word))
         try:
             old_word = HotSpot.objects.get(word=word)
         except:
