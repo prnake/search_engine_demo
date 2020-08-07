@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="220d8d3e-eeda-4a79-bfb2-9e907ec8761a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/search/templates/search/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/search/templates/search/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/search/templates/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ineseAnalyze</find>
       <find>django.utils import six</find>
       <find>six</find>
       <find>rom django.utils import six</find>
@@ -148,6 +147,7 @@
       <find>post-abs</find>
       <find>margin</find>
       <find>marg</find>
+      <find>psmoe</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -196,9 +196,9 @@
         <option value="$PROJECT_DIR$/mysite/settings.py" />
         <option value="$PROJECT_DIR$/search/views.py" />
         <option value="$PROJECT_DIR$/scrapy/views.py" />
-        <option value="$PROJECT_DIR$/search/templates/base.html" />
         <option value="$PROJECT_DIR$/search/static/css/style.css" />
         <option value="$PROJECT_DIR$/search/templates/search/detail.html" />
+        <option value="$PROJECT_DIR$/search/templates/base.html" />
         <option value="$PROJECT_DIR$/search/templates/search/result.html" />
       </list>
     </option>
@@ -429,12 +429,12 @@
       <workItem from="1596624721219" duration="1825000" />
       <workItem from="1596717385248" duration="860000" />
       <workItem from="1596718252146" duration="4142000" />
-      <workItem from="1596722617374" duration="48395000" />
+      <workItem from="1596722617374" duration="48862000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55222000" />
+    <option name="totallyTimeSpent" value="55689000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -454,7 +454,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3296837" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928367" visible="true" weight="0.23965937" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928367" weight="0.23965937" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39781022" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
