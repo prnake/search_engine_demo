@@ -147,6 +147,10 @@ main p {
   letter-spacing: .6px;
 }
 
+p.post-abstract {
+    margin-right: 1%;
+}
+
 @media only screen and (max-height: 600px).post-abstract {
   font-size: 16px;
 }
@@ -210,6 +214,7 @@ user agent stylesheetdiv {
 p.post-short-info {
     font-size: 13px;
     line-height: 0em;
+    margin-bottom: 0.5rem;
 }
 
 .navigation-clean-button {
