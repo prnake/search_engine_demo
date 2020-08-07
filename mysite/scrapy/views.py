@@ -179,7 +179,7 @@ class ThuSpider(object):
                         detail['teacher_a6'] = ''
                         detail['teacher_a7'] = ''
                     self.data.append(detail)
-                    print(detail)
+                    #print(detail)
             else:
                 print("Cookie已失效")
                 return None
