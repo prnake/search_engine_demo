@@ -149,7 +149,7 @@ class ThuSpider(object):
                             c = class_soup.select('table.table-striped > tbody > tr > td')
                             d = [""] * 40
                             for i, item in enumerate(c):
-                                if i in [17]:
+                                if i in [5,17]:
                                     d[i] = item.get_text().strip() if re.sub(r"\s", "", item.get_text()) else ""
                                 else:
                                     d[i] = re.sub(r"\s", "", item.get_text())

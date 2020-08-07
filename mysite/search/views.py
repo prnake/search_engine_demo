@@ -22,7 +22,10 @@ def search_list(request):
     message = ''
     if not keywords:
         return redirect('/')
-    post_list = Post.objects.filter(Q(title__icontains=keywords)|Q(body__icontains=keywords))
+    words = keywords.split(' ')
+    post_list = Post.objects
+    for word in words:
+        post_list = post_list.filter(Q(body__icontains=word))
     limit = 10
     paginator = Paginator(post_list, limit)
     page = request.GET.get('page')
