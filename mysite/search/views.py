@@ -14,8 +14,8 @@ def search_home(request):
     return render(request,'search/index.html', locals())
 
 def search_list(request):
-    if not request.session.get('is_login'):
-        return redirect('/login')
+    #if not request.session.get('is_login'):
+    #    return redirect('/login')
     start_time = time.time()
     searchbox = True
     keywords = request.GET.get('q')
@@ -52,8 +52,8 @@ def search_list(request):
 
 
 def show_detail(request,post_id):
-    if not request.session.get('is_login'):
-        return redirect('/login')
+    #if not request.session.get('is_login'):
+    #    return redirect('/login')
     try:
         post = Post.objects.get(id=post_id)
     except:
@@ -63,8 +63,8 @@ def show_detail(request,post_id):
     return render(request,'search/detail.html', locals())
 
 def show_teacher(request,teacher_id):
-    if not request.session.get('is_login'):
-        return redirect('/login')
+    #if not request.session.get('is_login'):
+    #    return redirect('/login')
     try:
         post = Teacher.objects.get(id=teacher_id)
     except:
