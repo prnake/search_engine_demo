@@ -38,10 +38,10 @@ def class_spider(request):
                     print("Error!")
             # 学生评教TOP50%的教师
             elif url_type==2:
-                url = 'https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421eaff4b8b3f3b2653770bc7b88b5c2d320506b1aec738590a49ba/xkBks.xgpg_xspjyxkt.do?cm=xgpg_qbkcmycdzbShow&p_xnxq=2020-2021-1&p_xslb=bks'
+                url = 'https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421eaff4b8b3f3b2653770bc7b88b5c2d320506b1aec738590a49ba/xkBks.xgpg_xspjyxkt.do?cm=xgpg_xspjyxktShow&p_xnxq=2020-2021-1&p_xslb=bks'
                 spider = ThuSpider(url, cookie)
                 try:
-                    spider.parse_top50(start, end)
+                    spider.parse_top50()
                 except:
                     print("Error!")
             # 选课学生推荐度
@@ -283,9 +283,24 @@ class ThuSpider(object):
             except:
                 print(teacher,class_id,"未找到")
             else:
-                old_class.recommend = score
+                old_class.recommend = float('%0.2f'%score)
                 old_class.save()
         print("处理完成")
         return None
-    def parse_top50(self,start=1,end=10):
+    def parse_top50(self):
+        print("开始处理")
+        response = requests.post(self.url, headers=self.headers)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        a = soup.find_all("tr", class_="trr2")
+        for item in a:
+            b = item.select('td')
+            name = b[2].get_text()
+            old_class_list = models.Post.objects.filter(teacher=name)
+            if old_class_list.exists():
+                for old_class in old_class_list:
+                    old_class.top_50 = True
+                    old_class.save()
+            else:
+                print(name,"未找到")
+        print("处理完成")
         return None
