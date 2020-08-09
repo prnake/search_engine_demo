@@ -5,7 +5,7 @@
         <div class="container">
             <p>Find {{ post_list|length }} results in {{ load_time }} s, currently at page {{ posts.number }} / {{ paginator.num_pages }}.<br></p>
             {% for post in posts.object_list %}
-            <div class="post-container {% if forloop.counter|divisibleby:2 %}post-list-thumb-left{% endif %} }}">
+            <div class="post-container {% if forloop.counter|divisibleby:2 %}post-list-thumb-left{% endif %}">
                 <div class="post-thumb"><a href="/detail/{{ post.id }}"><img src='{% random_img "image/" %}'></a></div>
                 <div class="post-content">
                     <h1 class="post-title"><a href="/detail/{{ post.id }}">{{ post.title }}</a></h1>
