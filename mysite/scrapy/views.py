@@ -7,6 +7,7 @@ from .forms import LogForm
 from . import models
 from django.db.models import Max
 from mysite import settings
+import json
 
 from fake_useragent import UserAgent
 import requests
@@ -22,16 +23,35 @@ def class_spider(request):
     if request.method == 'POST':
         form = LogForm(request.POST)
         if form.is_valid():
-            url = form.cleaned_data.get('url')
+            url_type = form.cleaned_data.get('url_type')
             cookie = form.cleaned_data.get('cookie')
             start = form.cleaned_data.get('start')
             end = form.cleaned_data.get('end')
-            spider = ThuSpider(url,cookie)
-            end = min(end,spider.get_max_page())
-            try:
-                spider.parse_page(start,end)
-            except:
-                print("Error!")
+            # 一级课开课信息
+            if url_type==1:
+                url = 'https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421eaff4b8b3f3b2653770bc7b88b5c2d320506b1aec738590a49ba/xkBks.vxkBksJxjhBs.do?m=kkxxSearch&p_xnxq=2020-2021-1&pathContent=%D2%BB%BC%B6%BF%CE%BF%AA%BF%CE%D0%C5%CF%A2'
+                spider = ThuSpider(url, cookie)
+                end = min(end, spider.get_max_page())
+                try:
+                    spider.parse_page(start, end)
+                except:
+                    print("Error!")
+            # 学生评教TOP50%的教师
+            elif url_type==2:
+                url = 'https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421eaff4b8b3f3b2653770bc7b88b5c2d320506b1aec738590a49ba/xkBks.xgpg_xspjyxkt.do?cm=xgpg_qbkcmycdzbShow&p_xnxq=2020-2021-1&p_xslb=bks'
+                spider = ThuSpider(url, cookie)
+                try:
+                    spider.parse_top50(start, end)
+                except:
+                    print("Error!")
+            # 选课学生推荐度
+            elif url_type==3:
+                url = 'https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421eaff4b8b3f3b2653770bc7b88b5c2d320506b1aec738590a49ba/xkBks.xgpg_xspjyxkt.do?vpn-12-o1-zhjwxk.cic.tsinghua.edu.cn&cm=xgpg_qbkcmycdzbData&p_xnxq=2020-2021-1&p_xslb=bks'
+                spider = ThuSpider(url, cookie)
+                try:
+                    spider.parse_recommend()
+                except:
+                    print("Error!")
             return redirect('/scrapy/')
     else:
         context = {}
@@ -249,3 +269,23 @@ class ThuSpider(object):
                 new_teacher.a7 = item['teacher_a7']
                 new_teacher.save()
         self.data.clear()
+    def parse_recommend(self):
+        print("开始处理")
+        response = requests.post(self.url, headers=self.headers)
+        js = json.loads(response.text)
+        infos = js["rows"]
+        for info in infos:
+            teacher = info["jsm"]
+            class_id = info["kch"]
+            score = info["fs1"] * 1 + info["fs2"] * 2 + info["fs3"] * 3 + info["fs4"] * 4 + info["fs5"] * 5 + info["fs6"] * 6 + info["fs7"] * 7
+            try:
+                old_class = models.Post.objects.get(class_id=class_id, teacher=teacher)
+            except:
+                print(teacher,class_id,"未找到")
+            else:
+                old_class.recommend = score
+                old_class.save()
+        print("处理完成")
+        return None
+    def parse_top50(self,start=1,end=10):
+        return None

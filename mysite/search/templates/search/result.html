@@ -9,7 +9,7 @@
                 <div class="post-thumb"><a href="/detail/{{ post.id }}"><img src='{% random_img "image/" %}'></a></div>
                 <div class="post-content">
                     <h1 class="post-title"><a href="/detail/{{ post.id }}">{{ post.title }}</a></h1>
-                    <p class="post-short-info">{% if post.department %}<i class="fas fa-school"></i>{{ post.department }}{% endif %}  {% if post.teacher %}<i class="fas fa-male"></i><a href="/teacher/{{ post.teacher_id }}">{{ post.teacher }}</a>{% endif %} {% if post.a14 %}<i class="fas fa-clock"></i>{{ post.a14 }}{% endif %} {% if post.study_credit != '0' %}<i class="fas fa-graduation-cap"></i>{{ post.study_credit }}学分{% endif %} {% if post.a16 %}<i class="fas fa-clipboard"></i>{{ post.a16 }}{% endif %}</p>
+                    <p class="post-short-info">{% if post.department %}<i class="fas fa-school"></i>{{ post.department }}{% endif %}  {% if post.teacher %}<i class="fas fa-male"></i><a href="/teacher/{{ post.teacher_id }}">{{ post.teacher }}</a>{% endif %} {% if post.a14 %}<i class="fas fa-clock"></i>{{ post.a14 }}{% endif %} {% if post.study_credit != '0' %}<i class="fas fa-graduation-cap"></i>{{ post.study_credit }}学分{% endif %} {% if post.a16 %}<i class="fas fa-clipboard"></i>{{ post.a16 }}{% endif %} {% if post.recommend %}<i class="fas fa-star"></i>推荐度:{{ post.recommend }}/7{% endif %}</p>
                     <p class="post-abstract">{{ post.introduction|striptags|slice:"100" }}{% if post.introduction|length > 100 %}......{% endif %}</p>
                 </div>
             </div>
