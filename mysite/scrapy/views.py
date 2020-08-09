@@ -283,7 +283,7 @@ class ThuSpider(object):
             except:
                 print(teacher,class_id,"未找到")
             else:
-                old_class.recommend = float('%0.2f'%score)
+                old_class.recommend = format(score,'0.2f')
                 old_class.save()
         print("处理完成")
         return None
