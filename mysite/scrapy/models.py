@@ -38,8 +38,8 @@ class Post(models.Model):
     a20 = models.TextField(verbose_name='重修是否占容量', blank=True)
     a21 = models.TextField(verbose_name='是否选课时限制', blank=True)
     a22 = models.TextField(verbose_name='本科文化素质课组', blank=True)
-    top_50 = models.BooleanField(default=False)
-    recommend = models.FloatField(default=0)
+    top_50 = models.BooleanField(verbose_name='学生评教TOP50%',default=False)
+    recommend = models.FloatField(verbose_name='选课学生推荐度',default=0)
 
     def __str__(self):
         return self.title
