@@ -277,7 +277,7 @@ class ThuSpider(object):
         for info in infos:
             teacher = info["jsm"]
             class_id = info["kch"]
-            score = info["fs1"] * 1 + info["fs2"] * 2 + info["fs3"] * 3 + info["fs4"] * 4 + info["fs5"] * 5 + info["fs6"] * 6 + info["fs7"] * 7
+            score = (info["fs1"] * 1 + info["fs2"] * 2 + info["fs3"] * 3 + info["fs4"] * 4 + info["fs5"] * 5 + info["fs6"] * 6 + info["fs7"] * 7)/(info["fs1"] + info["fs2"] + info["fs3"] + info["fs4"] + info["fs5"] + info["fs6"] + info["fs7"])
             try:
                 old_class = models.Post.objects.get(class_id=class_id, teacher=teacher)
             except:

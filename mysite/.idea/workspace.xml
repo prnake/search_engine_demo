@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="220d8d3e-eeda-4a79-bfb2-9e907ec8761a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapy/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrapy/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapy/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrapy/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrapy/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrapy/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search/templates/search/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/search/templates/search/result.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scrapy/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+            <state relative-caret-position="217">
+              <caret line="279" column="243" lean-forward="true" selection-start-line="279" selection-start-column="243" selection-end-line="279" selection-end-column="243" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -196,8 +192,8 @@
         <option value="$PROJECT_DIR$/search/static/css/style.css" />
         <option value="$PROJECT_DIR$/scrapy/forms.py" />
         <option value="$PROJECT_DIR$/scrapy/models.py" />
-        <option value="$PROJECT_DIR$/scrapy/views.py" />
         <option value="$PROJECT_DIR$/search/templates/search/result.html" />
+        <option value="$PROJECT_DIR$/scrapy/views.py" />
       </list>
     </option>
   </component>
@@ -429,12 +425,12 @@
       <workItem from="1596722617374" duration="48862000" />
       <workItem from="1596816937785" duration="139000" />
       <workItem from="1596817453292" duration="176000" />
-      <workItem from="1596967166763" duration="2917000" />
+      <workItem from="1596967166763" duration="3256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58921000" />
+    <option name="totallyTimeSpent" value="59260000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -738,13 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scrapy/templates/scrapy/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/search/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
@@ -793,10 +782,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scrapy/templates/scrapy/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scrapy/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        <state relative-caret-position="217">
+          <caret line="279" column="243" lean-forward="true" selection-start-line="279" selection-start-column="243" selection-end-line="279" selection-end-column="243" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
