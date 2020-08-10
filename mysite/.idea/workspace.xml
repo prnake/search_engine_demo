@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="220d8d3e-eeda-4a79-bfb2-9e907ec8761a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/search/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/search/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search/static/js/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/search/static/js/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/search/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search/templates/search/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/search/templates/search/result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/search/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search/templates/search/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
@@ -59,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/search/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
-              <caret line="4" column="1648" selection-start-line="4" selection-start-column="1648" selection-end-line="4" selection-end-column="1648" />
+              <caret line="4" column="1844" selection-start-line="4" selection-start-column="1844" selection-end-line="4" selection-end-column="1844" />
             </state>
           </provider>
         </entry>
@@ -111,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/search/templates/search/result.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="362">
-              <caret line="29" column="119" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="29" selection-end-column="119" />
+              <caret line="29" column="119" selection-start-line="27" selection-start-column="16" selection-end-line="29" selection-end-column="119" />
             </state>
           </provider>
         </entry>
@@ -120,10 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find />
-      <find>teacher_sex</find>
-      <find>d</find>
-      <find>get_response(</find>
       <find>get_response(request)</find>
       <find>class_url</find>
       <find>.url</find>
@@ -150,6 +143,10 @@
       <find>recommend</find>
       <find>o-fullpa</find>
       <find>animateCss</find>
+      <find>white</find>
+      <find>background</find>
+      <find>background: white;</find>
+      <find>.navigation-clean-button</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -192,15 +189,15 @@
         <option value="$PROJECT_DIR$/mysite/settings.py" />
         <option value="$PROJECT_DIR$/search/views.py" />
         <option value="$PROJECT_DIR$/search/templates/search/detail.html" />
-        <option value="$PROJECT_DIR$/search/templates/base.html" />
         <option value="$PROJECT_DIR$/scrapy/forms.py" />
         <option value="$PROJECT_DIR$/scrapy/views.py" />
         <option value="$PROJECT_DIR$/scrapy/templates/scrapy/index.html" />
         <option value="$PROJECT_DIR$/scrapy/models.py" />
-        <option value="$PROJECT_DIR$/search/static/css/style.css" />
         <option value="$PROJECT_DIR$/search/static/js/style.js" />
         <option value="$PROJECT_DIR$/search/templates/search/result.html" />
         <option value="$PROJECT_DIR$/search/templates/search/index.html" />
+        <option value="$PROJECT_DIR$/search/templates/base.html" />
+        <option value="$PROJECT_DIR$/search/static/css/style.css" />
       </list>
     </option>
   </component>
@@ -434,12 +431,12 @@
       <workItem from="1596817453292" duration="176000" />
       <workItem from="1596967166763" duration="5407000" />
       <workItem from="1596973930056" duration="992000" />
-      <workItem from="1597041198901" duration="1750000" />
+      <workItem from="1597041198901" duration="2921000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64153000" />
+    <option name="totallyTimeSpent" value="65324000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -454,12 +451,12 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28151864" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28151864" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3296837" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928367" visible="true" weight="0.23965937" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928367" visible="true" weight="0.23965937" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39781022" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -487,7 +484,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/search$manage.coverage" NAME="manage Coverage Results" MODIFIED="1596629036576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mysite$settings.coverage" NAME="settings Coverage Results" MODIFIED="1596721733481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysite" />
-    <SUITE FILE_PATH="coverage/mysite$manage.coverage" NAME="manage Coverage Results" MODIFIED="1597042634914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mysite$manage.coverage" NAME="manage Coverage Results" MODIFIED="1597044052222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/search/.env" />
@@ -726,27 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="1648" selection-start-line="4" selection-start-column="1648" selection-end-line="4" selection-end-column="1648" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search/static/js/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="495" selection-start-column="495" selection-end-column="495" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scrapy/templates/scrapy/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scrapy/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
@@ -774,7 +750,7 @@
     <entry file="file://$PROJECT_DIR$/search/templates/search/result.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
-          <caret line="29" column="119" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="29" selection-end-column="119" />
+          <caret line="29" column="119" selection-start-line="27" selection-start-column="16" selection-end-line="29" selection-end-column="119" />
         </state>
       </provider>
     </entry>
@@ -788,6 +764,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/search/templates/search/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/search/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -795,10 +778,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search/templates/search/index.html">
+    <entry file="file://$PROJECT_DIR$/scrapy/templates/scrapy/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        <state relative-caret-position="42">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/static/js/style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="495" selection-start-column="495" selection-end-column="495" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="1844" selection-start-line="4" selection-start-column="1844" selection-end-line="4" selection-end-column="1844" />
         </state>
       </provider>
     </entry>
