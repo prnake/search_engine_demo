@@ -11,6 +11,8 @@ from django.core.paginator import PageNotAnInteger
 # Create your views here.
 
 def search_home(request):
+    title = "Course Search"
+    content = "Anything that can go wrong will go wrong."
     return render(request,'search/index.html', locals())
 
 def search_list(request):
@@ -48,6 +50,10 @@ def search_list(request):
 
     end_time = time.time()
     load_time = end_time-start_time
+    
+    title = keywords + " - Course Search"
+    content = "Anything that can go wrong will go wrong."
+    
     return render(request,'search/result.html', locals())
 
 
@@ -60,6 +66,10 @@ def show_detail(request,post_id):
         return redirect('/')
     ignore_list = ['id','title','body','url']
     params = [[f.verbose_name,post.__dict__[f.name]] for f in post._meta.fields if f.name not in ignore_list and post.__dict__[f.name]]
+    
+    title = post.title
+    content = post.department + " " + post.teacher
+    
     return render(request,'search/detail.html', locals())
 
 def show_teacher(request,teacher_id):
@@ -71,6 +81,10 @@ def show_teacher(request,teacher_id):
         return redirect('/')
     ignore_list = ['url']
     params = [[f.verbose_name,post.__dict__[f.name]] for f in post._meta.fields if f.name not in ignore_list and post.__dict__[f.name]]
+    
+    title = post.name
+    content = post.a5
+    
     return render(request,'search/teacher.html', locals())
 
 def login(request):
@@ -98,6 +112,10 @@ def login(request):
             else:
                 return render(request, 'search/login.html', locals())
         login_form = forms.UserForm()
+        
+        title = "Log in"
+        content = "Anything that can go wrong will go wrong."
+        
         return render(request, 'search/login.html',locals())
 
 def signup(request):
@@ -136,6 +154,10 @@ def signup(request):
             else:
                 return render(request, 'search/signup.html', locals())
         register_form = forms.RegisterForm()
+        
+        title = "Sign up"
+        content = "Anything that can go wrong will go wrong."
+        
         return render(request, 'search/signup.html', locals())
 
 

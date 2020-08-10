@@ -14,6 +14,7 @@
                 </div>
             </div>
             {% endfor %}
+            {% if post_list|length %}
             <p style="text-align: center">
                 {% if posts.has_previous %}
                     <a href="?q={{ keywords }}&page={{ posts.previous_page_number }}">上一页</a>
@@ -23,6 +24,11 @@
                     <a href="?q={{ keywords }}&page={{ posts.next_page_number }}">下一页</a>
                 {% endif %}
             </p>
+            {% else %}
+                <!--hitokoto一言-->
+                <div id="hitokoto" class="hitokoto-fullpage"><div class="word" id="hitokoto_text"><br></div></div>
+                <script src="https://v1.hitokoto.cn/?encode=js&c=a&c=d&c=i&c=k&select=%23hitokoto_text" defer></script>
+            {% endif %}
         </div>
     </main>
 {% endblock main_block %}

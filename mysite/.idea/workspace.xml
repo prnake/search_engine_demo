@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="220d8d3e-eeda-4a79-bfb2-9e907ec8761a" name="Default Changelist" comment="" />
+    <list default="true" id="220d8d3e-eeda-4a79-bfb2-9e907ec8761a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/search/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/search/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/static/js/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/search/static/js/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/search/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/templates/search/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/search/templates/search/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/search/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +25,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="462">
               <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-              <folding>
-                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#table#0;n#div#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -35,11 +38,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/search/templates/search/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+            <state relative-caret-position="720">
+              <caret line="44" column="49" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -50,13 +62,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4536">
-              <caret line="216" column="1" selection-start-line="216" selection-start-column="1" selection-end-line="216" selection-end-column="1" />
+            <state relative-caret-position="84">
+              <caret line="4" column="1648" selection-start-line="4" selection-start-column="1648" selection-end-line="4" selection-end-column="1648" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/static/js/style.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="495" selection-start-column="495" selection-end-column="495" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scrapy/templates/scrapy/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
@@ -89,20 +110,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search/templates/search/result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="304" selection-start-line="11" selection-start-column="304" selection-end-line="11" selection-end-column="304" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-              <folding>
-                <element signature="e#630#662#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="362">
+              <caret line="29" column="119" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="29" selection-end-column="119" />
             </state>
           </provider>
         </entry>
@@ -111,8 +120,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rom django.utils import six</find>
-      <find>import six</find>
       <find />
       <find>teacher_sex</find>
       <find>d</find>
@@ -141,6 +148,8 @@
       <find>psmoe</find>
       <find>https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421eaff4b8b3f3b2653770bc7b88b5c2d320506b1aec738590a49ba/xkBks.xgpg_xspjyxkt.do?vpn-12-o1-zhjwxk.cic.tsinghua.edu.cn&amp;cm=xgpg_qbkcmycdzbData&amp;p_xnxq=2020-2021-1&amp;p_xslb=bks</find>
       <find>recommend</find>
+      <find>o-fullpa</find>
+      <find>animateCss</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -158,7 +167,6 @@
         <option value="$PROJECT_DIR$/mysite/wsgi.py" />
         <option value="$PROJECT_DIR$/search/templates/captcha/text_field.html" />
         <option value="$PROJECT_DIR$/search/forms.py" />
-        <option value="$PROJECT_DIR$/search/templates/search/index.html" />
         <option value="$PROJECT_DIR$/search/templates/search/login.html" />
         <option value="$PROJECT_DIR$/search/templates/search/signup.html" />
         <option value="$PROJECT_DIR$/search/templatetags/__init__.py" />
@@ -181,17 +189,18 @@
         <option value="$PROJECT_DIR$/mysite/middleware.py" />
         <option value="$PROJECT_DIR$/search/admin.py" />
         <option value="$PROJECT_DIR$/search/models.py" />
-        <option value="$PROJECT_DIR$/search/static/js/style.js" />
         <option value="$PROJECT_DIR$/mysite/settings.py" />
         <option value="$PROJECT_DIR$/search/views.py" />
         <option value="$PROJECT_DIR$/search/templates/search/detail.html" />
         <option value="$PROJECT_DIR$/search/templates/base.html" />
-        <option value="$PROJECT_DIR$/search/static/css/style.css" />
         <option value="$PROJECT_DIR$/scrapy/forms.py" />
-        <option value="$PROJECT_DIR$/search/templates/search/result.html" />
         <option value="$PROJECT_DIR$/scrapy/views.py" />
         <option value="$PROJECT_DIR$/scrapy/templates/scrapy/index.html" />
         <option value="$PROJECT_DIR$/scrapy/models.py" />
+        <option value="$PROJECT_DIR$/search/static/css/style.css" />
+        <option value="$PROJECT_DIR$/search/static/js/style.js" />
+        <option value="$PROJECT_DIR$/search/templates/search/result.html" />
+        <option value="$PROJECT_DIR$/search/templates/search/index.html" />
       </list>
     </option>
   </component>
@@ -425,11 +434,12 @@
       <workItem from="1596817453292" duration="176000" />
       <workItem from="1596967166763" duration="5407000" />
       <workItem from="1596973930056" duration="992000" />
+      <workItem from="1597041198901" duration="1750000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62403000" />
+    <option name="totallyTimeSpent" value="64153000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -444,12 +454,12 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27722064" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28151864" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3296837" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928367" weight="0.23965937" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928367" visible="true" weight="0.23965937" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39781022" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -477,7 +487,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/search$manage.coverage" NAME="manage Coverage Results" MODIFIED="1596629036576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mysite$settings.coverage" NAME="settings Coverage Results" MODIFIED="1596721733481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysite" />
-    <SUITE FILE_PATH="coverage/mysite$manage.coverage" NAME="manage Coverage Results" MODIFIED="1596972027948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mysite$manage.coverage" NAME="manage Coverage Results" MODIFIED="1597042634914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/search/.env" />
@@ -689,13 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search/templates/search/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/search/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -713,64 +716,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search/static/js/style.js">
+    <entry file="file://$PROJECT_DIR$/mysite/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        <state relative-caret-position="441">
+          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search/templates/search/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#table#0;n#div#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#630#662#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/search/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4536">
-          <caret line="216" column="1" selection-start-line="216" selection-start-column="1" selection-end-line="216" selection-end-column="1" />
+        <state relative-caret-position="84">
+          <caret line="4" column="1648" selection-start-line="4" selection-start-column="1648" selection-end-line="4" selection-end-column="1648" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search/templates/search/result.html">
+    <entry file="file://$PROJECT_DIR$/search/static/js/style.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="304" selection-start-line="11" selection-start-column="304" selection-end-line="11" selection-end-column="304" />
+        <state>
+          <caret column="495" selection-start-column="495" selection-end-column="495" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/urls.py">
+    <entry file="file://$PROJECT_DIR$/scrapy/templates/scrapy/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-          <folding>
-            <element signature="e#630#662#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="42">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapy/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="41" column="60" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -784,17 +764,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scrapy/models.py">
+    <entry file="file://$PROJECT_DIR$/search/templates/search/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="41" column="60" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
+        <state relative-caret-position="462">
+          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scrapy/templates/scrapy/index.html">
+    <entry file="file://$PROJECT_DIR$/search/templates/search/result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        <state relative-caret-position="362">
+          <caret line="29" column="119" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="29" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="44" column="49" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/templates/search/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
         </state>
       </provider>
     </entry>
