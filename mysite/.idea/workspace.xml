@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="220d8d3e-eeda-4a79-bfb2-9e907ec8761a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/search/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/search/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/search/templates/base.html" afterDir="false" />
-    </list>
+    <list default="true" id="220d8d3e-eeda-4a79-bfb2-9e907ec8761a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -431,12 +428,12 @@
       <workItem from="1596817453292" duration="176000" />
       <workItem from="1596967166763" duration="5407000" />
       <workItem from="1596973930056" duration="992000" />
-      <workItem from="1597041198901" duration="2921000" />
+      <workItem from="1597041198901" duration="3500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65324000" />
+    <option name="totallyTimeSpent" value="65903000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -456,7 +453,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3296837" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928367" visible="true" weight="0.23965937" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928367" weight="0.23965937" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39781022" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
