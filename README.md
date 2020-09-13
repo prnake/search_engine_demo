@@ -1,8 +1,6 @@
 # search_engine_demo
 A demo for SAST Summer Training
 
-DEMO: https://search.pka.moe
-
 ## 规划列表
 
 - [x] 爬虫部分
