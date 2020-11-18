@@ -1,5 +1,4 @@
 appnope==0.1.0
-asgiref @ file:///tmp/build/80754af9/asgiref_1594338739818/work
 backcall==0.2.0
 beautifulsoup4==4.9.1
 bs4==0.0.1
