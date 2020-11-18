@@ -56,9 +56,8 @@ A demo for SAST Summer Training
 ```bash
 # Set up at Python 3.8.3, Django 3.0.3
 git clone https://github.com/prnake/search_engine_demo.git
-cd search_engine_demo
+cd search_engine_demo/mysite
 pip install -r requirements.txt
-cd mysite
 vi mysite/.env
 ```
 
