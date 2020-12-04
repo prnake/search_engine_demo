@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Post,Teacher
+from .models import Post, Teacher
 from django.core.paginator import Paginator
-from django.shortcuts import render,redirect,reverse
+from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponseRedirect
 from .forms import LogForm
 from . import models
@@ -15,7 +15,6 @@ from bs4 import BeautifulSoup
 import re
 from lxml import etree
 
-# Create your views here.
 
 def class_spider(request):
     if not request.session.get('is_login') or request.session.get('user_email') not in settings.ADMIN_EMAIL:  # 不允许重复登录
@@ -23,13 +22,13 @@ def class_spider(request):
     if request.method == 'POST':
         form = LogForm(request.POST)
         if form.is_valid():
+            url = form.cleaned_data.get('url')
             url_type = form.cleaned_data.get('url_type')
             cookie = form.cleaned_data.get('cookie')
             start = form.cleaned_data.get('start')
             end = form.cleaned_data.get('end')
             # 一级课开课信息
-            if url_type==1:
-                url = 'https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421eaff4b8b3f3b2653770bc7b88b5c2d320506b1aec738590a49ba/xkBks.vxkBksJxjhBs.do?m=kkxxSearch&p_xnxq=2020-2021-1&pathContent=%D2%BB%BC%B6%BF%CE%BF%AA%BF%CE%D0%C5%CF%A2'
+            if url_type == 1:
                 spider = ThuSpider(url, cookie)
                 end = min(end, spider.get_max_page())
                 try:
@@ -37,16 +36,14 @@ def class_spider(request):
                 except:
                     print("Error!")
             # 学生评教TOP50%的教师
-            elif url_type==2:
-                url = 'https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421eaff4b8b3f3b2653770bc7b88b5c2d320506b1aec738590a49ba/xkBks.xgpg_xspjyxkt.do?cm=xgpg_xspjyxktShow&p_xnxq=2020-2021-1&p_xslb=bks'
+            elif url_type == 2:
                 spider = ThuSpider(url, cookie)
                 try:
                     spider.parse_top50()
                 except:
                     print("Error!")
             # 选课学生推荐度
-            elif url_type==3:
-                url = 'https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421eaff4b8b3f3b2653770bc7b88b5c2d320506b1aec738590a49ba/xkBks.xgpg_xspjyxkt.do?vpn-12-o1-zhjwxk.cic.tsinghua.edu.cn&cm=xgpg_qbkcmycdzbData&p_xnxq=2020-2021-1&p_xslb=bks'
+            elif url_type == 3:
                 spider = ThuSpider(url, cookie)
                 try:
                     spider.parse_recommend()
@@ -58,41 +55,47 @@ def class_spider(request):
         context['form'] = LogForm()
         return render(request, 'scrapy/index.html', context)
 
+
 class ThuSpider(object):
     def __init__(self, url, cookie):
-        self.ua = UserAgent()
+        self.ua = UserAgent(verify_ssl=False)
         self.headers = {"User-Agent": self.ua.random, "Cookie": cookie}
         self.data = list()
         self.url = url
+        self.base_url = re.match(
+            'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+/', self.url).group(0)
 
     def get_max_page(self):
         response = requests.get(self.url, headers=self.headers)
-        if response.status_code == 200 and '网瑞达' not in response.text:
+        if response.status_code == 200:
             soup = BeautifulSoup(response.text, 'html.parser')
             a = soup.select('p[class="yeM yahei"]')
-            max_page = int(re.search(r'共 (\d+) 页',a[0].get_text()).group(1))
+            max_page = int(re.search(r'共 (\d+) 页', a[0].get_text()).group(1))
             return max_page
         else:
             print("Cookie已失效")
             return None
-    def parse_page(self,start=1,end=10):
+
+    def parse_page(self, start=1, end=10):
         #end = self.get_max_page()+1
-        data = {'m': 'kkxxSearch','page': '2','token': '7348aedd571905c8cb54932742acf6f0','p_sort.asc1': 'true','p_sort.asc2': 'true','p_xnxq': 2020-2021-1,'pathContent': '%D2%BB%BC%B6%BF%CE%BF%AA%BF%CE%D0%C5%CF%A2','goPageNumber': '1'}
-        for count in range(start,end):
+        data = {'m': 'kkxxSearch', 'page': '2', 'token': 'd9f6be92f4d21b356e091f3cc9b7abc3', 'p_sort.asc1': 'true',
+                'p_sort.asc2': 'true', 'p_xnxq': 2020-2021-2, 'pathContent': '%D2%BB%BC%B6%BF%CE%BF%AA%BF%CE%D0%C5%CF%A2', 'goPageNumber': '1'}
+        for count in range(start, end):
             print("正在处理第%d页" % count)
             data['page'] = count
-            response = requests.post(self.url, data=data,headers=self.headers)
-            if response.status_code == 200 and '网瑞达' not in response.text:
+            response = requests.post(self.url, data=data, headers=self.headers)
+            if response.status_code == 200:
                 soup = BeautifulSoup(response.text, 'html.parser')
-                a = soup.find_all("tr",class_="trr2")
+                a = soup.find_all("tr", class_="trr2")
                 for item in a:
                     b = [""] * 20
                     detail = dict()
                     row = item.select('td')
-                    for i,word in enumerate(row):
-                        b[i] = re.sub(r"\s","",word.get_text())
+                    for i, word in enumerate(row):
+                        b[i] = re.sub(r"\s", "", word.get_text())
                     try:
-                        detail['class_url'] = 'https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421eaff4b8b3f3b2653770bc7b88b5c2d320506b1aec738590a49ba/' + row[3].find('a')['href']
+                        detail['class_url'] = self.base_url + \
+                            row[3].find('a')['href']
                     except:
                         detail['class_url'] = ''
                     detail['department'] = b[0]
@@ -102,7 +105,8 @@ class ThuSpider(object):
                     detail['study_credit'] = b[4]
                     detail['teacher'] = b[5]
                     try:
-                        detail['teacher_url'] = 'https://webvpn.tsinghua.edu.cn/http/77726476706e69737468656265737421eaff4b8b3f3b2653770bc7b88b5c2d320506b1aec738590a49ba/' + row[5].find('a')['href']
+                        detail['teacher_url'] = self.base_url + \
+                            row[5].find('a')['href']
                     except:
                         detail['teacher_url'] = ''
                     detail['a12'] = b[6]
@@ -117,33 +121,55 @@ class ThuSpider(object):
                     detail['a21'] = b[15]
                     detail['a22'] = b[16]
                     if detail['class_url']:
-                        class_r = requests.get(detail['class_url'], headers=self.headers)
-                        if response.status_code == 200 and '网瑞达' not in response.text:
+                        class_r = requests.get(
+                            detail['class_url'], headers=self.headers)
+                        if response.status_code == 200:
                             html = etree.HTML(class_r.text)
                             html = etree.tostring(html)
                             class_soup = BeautifulSoup(html, 'html.parser')
-                            c = class_soup.select('table.table-striped > tr > td')
+                            c = class_soup.select(
+                                'table.table-striped > tr > td')
                             d = [""] * 40
-                            for i, item in enumerate(c):
-                                if i in [10, 12, 14]:
-                                    d[i] = item.get_text().strip() if re.sub(r"\s", "", item.get_text()) else ""
-                                else:
-                                    d[i] = re.sub(r"\s", "", item.get_text())
-                            detail['body'] = d[0]
-                            detail['study_hour'] = d[6]
-                            detail['introduction'] = d[10]
-                            detail['en_introduction'] = d[12]
-                            detail['a1'] = d[14]
-                            detail['a2'] = d[16]
-                            detail['a3'] = d[18]
-                            detail['a4'] = d[20]
-                            detail['a5'] = d[22]
-                            detail['a6'] = d[24]
-                            detail['a7'] = d[26]
-                            detail['a8'] = d[28]
-                            detail['a9'] = d[30]
-                            detail['a10'] = d[32]
-                            detail['a11'] = d[34]
+                            if len(c) > 37:
+                                print(detail['class_url'], "因格式问题跳过")
+                                detail['body'] = ''
+                                detail['study_hour'] = ''
+                                detail['introduction'] = ''
+                                detail['en_introduction'] = ''
+                                detail['a1'] = ''
+                                detail['a2'] = ''
+                                detail['a3'] = ''
+                                detail['a4'] = ''
+                                detail['a5'] = ''
+                                detail['a6'] = ''
+                                detail['a7'] = ''
+                                detail['a8'] = ''
+                                detail['a9'] = ''
+                                detail['a10'] = ''
+                                detail['a11'] = ''
+                            else:
+                                for i, item in enumerate(c):
+                                    if i in [10, 12, 14]:
+                                        d[i] = item.get_text().strip() if re.sub(
+                                            r"\s", "", item.get_text()) else ""
+                                    else:
+                                        d[i] = re.sub(
+                                            r"\s", "", item.get_text())
+                                detail['body'] = d[0]
+                                detail['study_hour'] = d[6]
+                                detail['introduction'] = d[10]
+                                detail['en_introduction'] = d[12]
+                                detail['a1'] = d[14]
+                                detail['a2'] = d[16]
+                                detail['a3'] = d[18]
+                                detail['a4'] = d[20]
+                                detail['a5'] = d[22]
+                                detail['a6'] = d[24]
+                                detail['a7'] = d[26]
+                                detail['a8'] = d[28]
+                                detail['a9'] = d[30]
+                                detail['a10'] = d[32]
+                                detail['a11'] = d[34]
                         else:
                             print("Cookie已失效")
                             return None
@@ -164,26 +190,44 @@ class ThuSpider(object):
                         detail['a10'] = ''
                         detail['a11'] = ''
                     if detail['teacher_url']:
-                        teacher_r = requests.get(detail['teacher_url'], headers=self.headers)
-                        if response.status_code == 200 and '网瑞达' not in response.text:
-                            class_soup = BeautifulSoup(teacher_r.text, 'html.parser')
-                            c = class_soup.select('table.table-striped > tbody > tr > td')
-                            d = [""] * 40
-                            for i, item in enumerate(c):
-                                if i in [5,17]:
-                                    d[i] = item.get_text().strip() if re.sub(r"\s", "", item.get_text()) else ""
-                                else:
-                                    d[i] = re.sub(r"\s", "", item.get_text())
-                            detail['teacher_id'] = d[1]
-                            detail['teacher_name'] = d[5]
-                            detail['teacher_sex'] = d[7]
-                            detail['teacher_a1'] = d[9]
-                            detail['teacher_a2'] = d[11]
-                            detail['teacher_a3'] = d[13]
-                            detail['teacher_a4'] = d[15]
-                            detail['teacher_a5'] = d[17]
-                            detail['teacher_a6'] = d[19]
-                            detail['teacher_a7'] = d[21]
+                        teacher_r = requests.get(
+                            detail['teacher_url'], headers=self.headers)
+                        if response.status_code == 200:
+                            class_soup = BeautifulSoup(
+                                teacher_r.text, 'html.parser')
+                            c = class_soup.select(
+                                'table.table-striped > tbody > tr > td')
+                            if len(c) > 22:
+                                print(detail['teacher_url'], "因格式问题跳过")
+                                detail['teacher_id'] = ''
+                                detail['teacher_name'] = ''
+                                detail['teacher_sex'] = ''
+                                detail['teacher_a1'] = ''
+                                detail['teacher_a2'] = ''
+                                detail['teacher_a3'] = ''
+                                detail['teacher_a4'] = ''
+                                detail['teacher_a5'] = ''
+                                detail['teacher_a6'] = ''
+                                detail['teacher_a7'] = ''
+                            else:
+                                d = [""] * 40
+                                for i, item in enumerate(c):
+                                    if i in [5, 17]:
+                                        d[i] = item.get_text().strip() if re.sub(
+                                            r"\s", "", item.get_text()) else ""
+                                    else:
+                                        d[i] = re.sub(
+                                            r"\s", "", item.get_text())
+                                detail['teacher_id'] = d[1]
+                                detail['teacher_name'] = d[5]
+                                detail['teacher_sex'] = d[7]
+                                detail['teacher_a1'] = d[9]
+                                detail['teacher_a2'] = d[11]
+                                detail['teacher_a3'] = d[13]
+                                detail['teacher_a4'] = d[15]
+                                detail['teacher_a5'] = d[17]
+                                detail['teacher_a6'] = d[19]
+                                detail['teacher_a7'] = d[21]
                         else:
                             print("Cookie已失效")
                             return None
@@ -199,12 +243,13 @@ class ThuSpider(object):
                         detail['teacher_a6'] = ''
                         detail['teacher_a7'] = ''
                     self.data.append(detail)
-                    #print(detail)
+                    # print(detail)
             else:
                 print("Cookie已失效")
                 return None
             print("第%d页处理完成" % count)
             self.save_data_to_model()
+
     def save_data_to_model(self):
         try:
             count = models.Post.objects.order_by('-id')[0].id + 1
@@ -212,7 +257,8 @@ class ThuSpider(object):
             count = 0
         for item in self.data:
             try:
-                models.Post.objects.get(class_id=item['class_id'],class_alter_id=item['class_alter_id'])
+                models.Post.objects.get(
+                    class_id=item['class_id'], class_alter_id=item['class_alter_id'])
             except:
                 new_post = Post()
                 new_post.id = count
@@ -253,7 +299,8 @@ class ThuSpider(object):
                 new_post.a22 = item['a22']
                 new_post.save()
             try:
-                models.Teacher.objects.get(id=item['teacher_id'],name=item['teacher_name'])
+                models.Teacher.objects.get(
+                    id=item['teacher_id'], name=item['teacher_name'])
             except:
                 new_teacher = Teacher()
                 new_teacher.id = item['teacher_id']
@@ -269,6 +316,7 @@ class ThuSpider(object):
                 new_teacher.a7 = item['teacher_a7']
                 new_teacher.save()
         self.data.clear()
+
     def parse_recommend(self):
         print("开始处理")
         response = requests.post(self.url, headers=self.headers)
@@ -277,16 +325,19 @@ class ThuSpider(object):
         for info in infos:
             teacher = info["jsm"]
             class_id = info["kch"]
-            score = (info["fs1"] * 1 + info["fs2"] * 2 + info["fs3"] * 3 + info["fs4"] * 4 + info["fs5"] * 5 + info["fs6"] * 6 + info["fs7"] * 7)/(info["fs1"] + info["fs2"] + info["fs3"] + info["fs4"] + info["fs5"] + info["fs6"] + info["fs7"])
-            try:
-                old_class = models.Post.objects.get(class_id=class_id, teacher=teacher)
-            except:
-                print(teacher,class_id,"未找到")
+            score = (info["fs1"] * 1 + info["fs2"] * 2 + info["fs3"] * 3 + info["fs4"] * 4 + info["fs5"] * 5 + info["fs6"] * 6 +
+                     info["fs7"] * 7)/(info["fs1"] + info["fs2"] + info["fs3"] + info["fs4"] + info["fs5"] + info["fs6"] + info["fs7"])
+            old_class_list = models.Post.objects.filter(
+                class_id=class_id, teacher=teacher)
+            if old_class_list.exists():
+                for old_class in old_class_list:
+                    old_class.recommend = format(score, '0.2f')
+                    old_class.save()
             else:
-                old_class.recommend = format(score,'0.2f')
-                old_class.save()
+                print(teacher, class_id, "未找到")
         print("处理完成")
         return None
+
     def parse_top50(self):
         print("开始处理")
         response = requests.post(self.url, headers=self.headers)
@@ -301,6 +352,6 @@ class ThuSpider(object):
                     old_class.top_50 = True
                     old_class.save()
             else:
-                print(name,"未找到")
+                print(name, "未找到")
         print("处理完成")
         return None

@@ -25,7 +25,7 @@ ADMIN_EMAIL = str(env('ADMIN_EMAIL')).split(' ')
 
 ALLOWED_HOSTS = ['*']
 
-SESSION_COOKIE_SECURE=True
+SESSION_COOKIE_SECURE = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
 
 # Application definition
@@ -117,8 +117,11 @@ USE_L10N = True
 
 USE_TZ = False
 
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
+
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -126,5 +129,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 STATIC_URL = '/static/'
 
 # Captcha
-CAPTCHA_IMAGE_SIZE = (80,28)
+CAPTCHA_IMAGE_SIZE = (80, 28)
 CAPTCHA_TIMEOUT = 1

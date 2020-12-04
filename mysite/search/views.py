@@ -1,22 +1,24 @@
 import time
-from django.shortcuts import render,redirect,reverse
+from django.shortcuts import render, redirect, reverse
 from django.db.models import Q
-from . import forms,models
+from . import forms, models
 from .models import HotSpot
-from scrapy.models import Post,Teacher
+from scrapy.models import Post, Teacher
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
 
 # Create your views here.
 
+
 def search_home(request):
     title = "Course Search"
     content = "Anything that can go wrong will go wrong."
-    return render(request,'search/index.html', locals())
+    return render(request, 'search/index.html', locals())
+
 
 def search_list(request):
-    #if not request.session.get('is_login'):
+    # if not request.session.get('is_login'):
     #    return redirect('/login')
     start_time = time.time()
     searchbox = True
@@ -25,9 +27,10 @@ def search_list(request):
     if not keywords:
         return redirect('/')
     words = keywords.split(' ')
-    post_list = Post.objects
+    post_list = Post.objects.order_by('-recommend', '-top_50')
     for word in words:
-        post_list = post_list.filter(Q(body__icontains=word)|Q(teacher__icontains=word)|Q(department__icontains=word)|Q(a14__icontains=word)|Q(a15__icontains=word)|Q(a16__icontains=word)|Q(a17__icontains=word))
+        post_list = post_list.filter(Q(body__icontains=word) | Q(teacher__icontains=word) | Q(department__icontains=word) | Q(
+            a14__icontains=word) | Q(a15__icontains=word) | Q(a16__icontains=word) | Q(a17__icontains=word))
         try:
             old_word = HotSpot.objects.get(word=word)
         except:
@@ -50,42 +53,46 @@ def search_list(request):
 
     end_time = time.time()
     load_time = end_time-start_time
-    
+
     title = keywords + " - Course Search"
     content = "Anything that can go wrong will go wrong."
-    
-    return render(request,'search/result.html', locals())
+
+    return render(request, 'search/result.html', locals())
 
 
-def show_detail(request,post_id):
-    #if not request.session.get('is_login'):
+def show_detail(request, post_id):
+    # if not request.session.get('is_login'):
     #    return redirect('/login')
     try:
         post = Post.objects.get(id=post_id)
     except:
         return redirect('/')
-    ignore_list = ['id','title','body','url']
-    params = [[f.verbose_name,post.__dict__[f.name]] for f in post._meta.fields if f.name not in ignore_list and post.__dict__[f.name]]
-    
+    ignore_list = ['id', 'title', 'body', 'url']
+    params = [[f.verbose_name, post.__dict__[f.name]]
+              for f in post._meta.fields if f.name not in ignore_list and post.__dict__[f.name]]
+
     title = post.title
     content = post.department + " " + post.teacher
-    
-    return render(request,'search/detail.html', locals())
 
-def show_teacher(request,teacher_id):
-    #if not request.session.get('is_login'):
+    return render(request, 'search/detail.html', locals())
+
+
+def show_teacher(request, teacher_id):
+    # if not request.session.get('is_login'):
     #    return redirect('/login')
     try:
         post = Teacher.objects.get(id=teacher_id)
     except:
         return redirect('/')
     ignore_list = ['url']
-    params = [[f.verbose_name,post.__dict__[f.name]] for f in post._meta.fields if f.name not in ignore_list and post.__dict__[f.name]]
-    
+    params = [[f.verbose_name, post.__dict__[f.name]]
+              for f in post._meta.fields if f.name not in ignore_list and post.__dict__[f.name]]
+
     title = post.name
     content = post.a5
-    
-    return render(request,'search/teacher.html', locals())
+
+    return render(request, 'search/teacher.html', locals())
+
 
 def login(request):
     if reverse('login'):
@@ -112,11 +119,12 @@ def login(request):
             else:
                 return render(request, 'search/login.html', locals())
         login_form = forms.UserForm()
-        
+
         title = "Log in"
         content = "Anything that can go wrong will go wrong."
-        
-        return render(request, 'search/login.html',locals())
+
+        return render(request, 'search/login.html', locals())
+
 
 def signup(request):
     if reverse('signup'):
@@ -128,7 +136,8 @@ def signup(request):
             if register_form.is_valid():
                 email = register_form.cleaned_data.get('email')
                 password = register_form.cleaned_data.get('password')
-                password_repeat = register_form.cleaned_data.get('password_repeat')
+                password_repeat = register_form.cleaned_data.get(
+                    'password_repeat')
                 if len(password) > 200:
                     message = '输入的密码过长！'
                     return render(request, 'search/signup.html', locals())
@@ -154,10 +163,10 @@ def signup(request):
             else:
                 return render(request, 'search/signup.html', locals())
         register_form = forms.RegisterForm()
-        
+
         title = "Sign up"
         content = "Anything that can go wrong will go wrong."
-        
+
         return render(request, 'search/signup.html', locals())
 
 
