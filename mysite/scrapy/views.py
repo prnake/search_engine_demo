@@ -78,8 +78,8 @@ class ThuSpider(object):
 
     def parse_page(self, start=1, end=10):
         #end = self.get_max_page()+1
-        data = {'m': 'kkxxSearch', 'page': '2', 'token': 'd9f6be92f4d21b356e091f3cc9b7abc3', 'p_sort.asc1': 'true',
-                'p_sort.asc2': 'true', 'p_xnxq': 2020-2021-2, 'pathContent': '%D2%BB%BC%B6%BF%CE%BF%AA%BF%CE%D0%C5%CF%A2', 'goPageNumber': '1'}
+        data = {'m': 'kkxxSearch', 'page': '2', 'token': '4f7210a0ed1ff5ef5878fcf1c4c0b92e', 'p_sort.asc1': 'true',
+                'p_sort.asc2': 'true', 'p_xnxq': 2021-2022-1, 'pathContent': '%D2%BB%BC%B6%BF%CE%BF%AA%BF%CE%D0%C5%CF%A2', 'goPageNumber': '1'}
         for count in range(start, end):
             print("正在处理第%d页" % count)
             data['page'] = count
